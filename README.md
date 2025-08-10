@@ -1,5 +1,5 @@
 
-## ChatBotIA com Dashboard de administrador
+## ChatBot com Dashboard de administrador
 ## Tecnologias
 HTML, TailwindCSS 3.14.7, JS, Python e PostgreSQL
 
