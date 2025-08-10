@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="h-full">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DashBoard</title>
+    <link rel="icon" href="/assets/favicon-32x32.png" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"> 
+    <style id="critical-loading-css">
+        html.loading-content{overflow:hidden!important}html.loading-content body{visibility:hidden!important;opacity:0!important}html.content-ready body{visibility:visible!important;opacity:1!important;display:block!important;transition:opacity .3s ease-out!important}.loading-screen{position:fixed;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg,#f8fafc 0%,#e2e8f0 100%);display:flex;align-items:center;justify-content:center;z-index:10000;opacity:1;visibility:visible;transition:all .4s cubic-bezier(.4,0,.2,1)}@media (prefers-color-scheme:dark){.loading-screen{background:linear-gradient(135deg,#1e293b 0%,#0f172a 100%)}}.loading-screen.loaded{opacity:0;visibility:hidden;pointer-events:none}.loader{position:relative;width:48px;height:48px}.loader::before{content:'';position:absolute;inset:0;border:3px solid #e2e8f0;border-top-color:#10b981;border-radius:50%;animation:spin 1s linear infinite}.loader::after{content:'';position:absolute;inset:6px;border:2px solid transparent;border-top-color:#059669;border-radius:50%;animation:spin 1.5s linear infinite reverse}@keyframes spin{to{transform:rotate(360deg)}}@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.loader::before,.loader::after{animation:none}}
+    </style>
+    
+    <link rel="preload" href="../css/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="../css/main.css"></noscript>
+</head>
+<body class="h-full bg-neutral-200 dark:bg-neutral-800">
+    <div class="loading-screen" id="loading-screen">
+        <div class="loader"></div>
+    </div>
+
+    <div id="page-skeleton-loader" class="animate-pulse transition-opacity duration-300 ease-in-out">
+        <header class="bg-gray-300 dark:bg-gray-700">
+            <div class="container mx-auto px-4 py-3 flex justify-between items-center h-[88px]">
+                <div class="h-10 w-32 bg-gray-400 dark:bg-gray-600 rounded"></div>
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 bg-gray-400 dark:bg-gray-600 rounded-full"></div>
+                    <div class="h-10 w-28 bg-gray-400 dark:bg-gray-600 rounded-full"></div>
+                    <div class="h-10 w-20 bg-gray-400 dark:bg-gray-600 rounded-full"></div>
+                </div>
+            </div>
+        </header>
+        <main class="container mx-auto p-4 lg:p-8">
+            <div class="mb-5 h-6 w-32 bg-gray-400 dark:bg-gray-500 rounded-md mx-auto"></div>
+            <div class="bg-gray-200 dark:bg-neutral-700 border border-gray-300 dark:border-neutral-600 rounded-xl shadow-sm">
+                <div class="border-b border-gray-300 dark:border-neutral-600">
+                    <div class="flex flex-col md:flex-row md:space-x-4 px-4">
+                        <div class="h-12 w-40 bg-gray-400 dark:bg-gray-600 rounded-t-md mt-2"></div>
+                        <div class="h-12 w-32 bg-gray-300 dark:bg-gray-500 rounded-t-md mt-2"></div>
+                        <div class="h-12 w-32 bg-gray-300 dark:bg-gray-500 rounded-t-md mt-2"></div>
+                        <div class="h-12 w-48 bg-gray-300 dark:bg-gray-500 rounded-t-md mt-2"></div>
+                    </div>
+                </div>
+                <div class="p-4 md:p-6">
+                    <div class="flex justify-between items-center mb-4">
+                        <div class="h-8 w-48 bg-gray-400 dark:bg-gray-500 rounded-md"></div>
+                        <div class="h-10 w-32 bg-gray-400 dark:bg-gray-500 rounded-md"></div>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="h-12 w-full bg-gray-300 dark:bg-gray-600 rounded-md"></div>
+                        <div class="h-12 w-full bg-gray-300 dark:bg-gray-600 rounded-md"></div>
+                        <div class="h-12 w-full bg-gray-300 dark:bg-gray-600 rounded-md"></div>
+                        <div class="h-12 w-full bg-gray-300 dark:bg-gray-600 rounded-md"></div>
+                    </div>
+                    <div class="mt-6 h-8 w-64 bg-gray-400 dark:bg-gray-500 rounded-md ml-auto"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+  <div id="app" class="transition-opacity duration-500 ease-in-out hidden">
+    <header class="bg-brand-green shadow-md rounded-md dark:bg-brand-darkgreen">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+        <img src="/assets/Logo.png" alt="Logo" class="h-12 sm:h-16 w-auto transition-all" loading="lazy">
+        <div class="flex items-center gap-2 sm:gap-4">
+            <button id="theme-toggle" class="bg-white/20 hover:bg-white/30 p-2 rounded-full text-white transition-colors" aria-label="Toggle dark mode">
+            <span id="theme-icon-container"></span>
+            </button>
+            <div class="relative">
+                <button id="user-menu-button" class="flex items-center space-x-2 bg-white/20 hover:bg-white/30 text-white font-medium py-2 px-4 rounded-full transition-colors">
+                    <span class="mr-2 font-medium"></span>
+                    <span id="user-menu-chevron-icon"></span>
+                </button>
+                <div id="user-menu-dropdown" class="hidden absolute right-0 mt-2 w-48 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-neutral-700" role="menu" aria-orientation="vertical" tabindex="-1">
+                    <div class="py-1" role="none"></div>
+                </div>
+            </div>
+            <button id="logout-button" class="bg-red-500 text-white rounded-full hover:bg-red-600 flex items-center p-2 sm:px-4 sm:py-2 transition-all">
+                <span id="logout-icon"></span>
+                <span class="hidden sm:inline sm:ml-2">Sair</span>
+            </button>
+
+        </div>
+    </div>
+</header>
+        
+        <main class="container mx-auto p-4 lg:p-8">
+<div class="mb-5 flex flex-col items-center gap-4 text-center">
+
+    
+    <button id="back-to-chat-btn" class="text-brand-green hover:underline flex items-center space-x-2 mx-auto">
+        <span id="back-arrow-icon"></span>
+        <span>Voltar ao Chat</span>
+    </button>
+</div>
+                
+                <div class="bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded-xl shadow-sm">
+                    <div class="border-b border-neutral-200 dark:border-neutral-700">
+                        <div id="admin-tabs-container" class="flex flex-col md:flex-row md:space-x-4 px-4">
+                            <button data-target="operators" class="tab-button-admin py-4 px-2 md:px-4 border-b-2 font-semibold text-sm flex items-center gap-2 hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">
+                                <span id="users-tab-icon"></span>
+                                Gerenciar Usuários
+                            </button>
+                            <button data-target="profiles" class="tab-button-admin py-4 px-2 md:px-4 border-b-2 font-semibold text-sm flex items-center gap-2 hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">
+                                <span id="profiles-tab-icon"></span>
+                                Gerenciar Perfis
+                            </button>
+                            <button data-target="categories" class="tab-button-admin py-4 px-2 md:px-4 border-b-2 font-semibold text-sm flex items-center gap-2 hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">
+                                <span id="categories-tab-icon"></span>
+                                Categorias
+                            </button>
+                            <button data-target="documents" class="tab-button-admin py-4 px-2 md:px-4 border-b-2 font-semibold text-sm flex items-center gap-2 hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">
+                                <span id="documents-tab-icon"></span>
+                                Base de Conhecimento
+                            </button>
+                            <button data-target="analytics" class="tab-button-admin py-4 px-2 md:px-4 border-b-2 font-semibold text-sm flex items-center gap-2 hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">
+                                <span id="analytics-tab-icon"></span>
+                                Análises
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div id="admin-content-container">
+                        <div id="operators-content" class="p-4 md:p-6 tab-content"></div>
+                        <div id="categories-content" class="p-4 md:p-6 tab-content hidden"></div>
+                        <div id="documents-content" class="p-4 md:p-6 tab-content hidden"></div>
+                        <div id="analytics-content" class="tab-content hidden"></div>
+                        <div id="profiles-content" class="p-4 md:p-6 tab-content hidden"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+ 
+<script defer type="module" src="../js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis
+    
+    container_name: ChatBot
+    
+    # Garante que o container reinicie automaticamente.
+    restart: always
+    
+    ports:
+      - "6379:6379"
+      
+    # Comando para ativar a persistência RDB e AOF.
+    # --save 60 1 signfica que salva o banco a cada 60 segundos se houver pelo menos 1 modificação.
+    # --appendonly yes ativa o modo AOF (Append Only File) para garantir a persistência dos dados.
+    command: redis-server --save 60 1 --appendonly yes
+    
+    # Volume para salvar os dados de persistência.
+    volumes:
+      - ./redis-data:/data
