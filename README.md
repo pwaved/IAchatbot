@@ -105,6 +105,24 @@ Pré-requisitos
     Chave da API da IA
     AI_API_KEY=sua_chave_da_api_de_ia
 
+ 	FRONTEND_URL=http://localhost:5173
+
+	SESSION_SECRET=99c1d67898145678cd2111fb3221a2c42bb4729f0f2d3427d88f8dba84fa2827
+	
+	NODE_ENV=development
+	
+	REDIS_URL=http://localhost:6379/
+	
+	SIMILARITY_THRESHOLD=0.7 
+	KEYWORD_BOOST_FACTOR =0.6 
+	CLASSIFICATION_CONFIDENCE_THRESHOLD =0.60
+	
+	LLM_EMBED_SERVICE_URL=http://127.0.0.1:8000/embed
+	LLM_GENERATE_SERVICE_URL=http://127.0.0.1:8000/generate
+	LLM_KEYWORDS_SERVICE_URL=http://127.0.0.1:8000/extract-keywords
+	LLM_CATEGORIZE_SERVICE_UR=http://127.0.0.1:8000/categorize
+	RERANK_SERVICE_URL=http://127.0.0.1:8000/rerank
+
 
 ## FRONTEND
     Em um novo terminal, navegue até a pasta do frontend
